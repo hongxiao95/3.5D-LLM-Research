@@ -1,9 +1,13 @@
-# Purpose
-
-To test the ability of giving formatted output of mini-GPT4, chatGPT 3.5, chatGPT 4. Since our research need the formatted output of LLM, I believe the research is useful.
+# Abstract & Introduction
+Based on the previous research, one of the main problem with driving robots with GPT is that GPT-4 costs too much. Xiaofan deploied the miniGPT-4 in our own server so that we can reach a "small" LLM model with nearly 0 cost. But after all, the computational power and parameter scale that miniGPT uses are very limited. 
+To test the ability of processing logical problem and generating formatted output of miniGPT, we designed two experiments to compare miniGPT with GPT3.5-turbo and GPT-4. 
+Relative to its limited computational power and parameters, miniGPT performs very well in terms of cost-effectiveness, but in terms of absolute capability, it lags significantly behind GPT3.5 and GPT4. For specific tasks, it might be possible to enhance miniGPT's capabilities in certain areas through model fine-tuning. However, if a comprehensive enhancement of miniGPT's capabilities is desired, increasing computational power and parameter scale might still be necessary under current technological conditions. 
 
 # Method
-Design some prompts, and input to the 3 models above, observe the results.
+
+We designed two experiments: ask the LLM to be a Robot command interpreter, and ask the LLM to answer questions via JSON format.
+For each case, we set one system prompts to describe the requirements in detail, and set serval questions based on the requirements. Each question represents for 20 points. There are 8 questions in total.
+After LLMs provide the answers to questions, we score it based on the quality of the answer and the scoring rules.
 
 # Test cases design
 The test cases are some prompts that ask the LLM to give formatted output.
@@ -789,6 +793,10 @@ Wrong brace, wired structure.
 Compared to the massive computational power required for the original versions of ChatGPT3.5 and GPT4, miniGPT4's ability to achieve a similar level of performance on a single machine with a single graphics card is quite superior. However, we must recognize that miniGPT exhibits a noticeable gap when handling logical problems and producing strongly formatted outputs compared to the original GPT models. This is not merely due to a lack of computational power. In fact, in order to accommodate the limited computational power and memory space of a single graphics card, the reduced parameter scale of miniGPT is likely the true reason for its inability to solve complex and formatting problems.
 
 If we think of the original GPT3.5 and GPT4's capabilities in executing logical and formatted tasks as the levels of undergraduate and graduate students, respectively, then miniGPT might be at the level of a middle school or high school student. Although this level of disparity is clear, it seems insignificant compared to the computational power gap. However, whether this gap is linear is something we believe requires further research. In other words, to bridge these seemingly small gaps, we may ultimately still need to upgrade the model to a larger one that can compete with GPT.
+
+# Future Work
+
+Fine-tuning miniGPT for specific domains to enhance its capability in solving certain types of problems might be the most valuable approach. Although, this might make miniGPT a 'specialized' language model, rather than a general-purpose model.
 
 
 
