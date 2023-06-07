@@ -13,9 +13,9 @@ To evaluate miniGPT's capability in processing logical problems and generating f
 
 Relative to its limited computational power and parameters, miniGPT performs very well in terms of cost-effectiveness, but in terms of absolute capability, it lags significantly behind GPT3.5 and GPT4. For specific tasks, it might be possible to enhance miniGPT's capabilities in certain areas through model fine-tuning. 
 
-However, if a comprehensive enhancement of miniGPT's capabilities is desired, increasing computational power and parameter scale might still be necessary under current technological conditions. 
+But if a comprehensive enhancement of miniGPT's capabilities is desired, increasing computational power and parameter scale might still be necessary under current technological conditions. 
 
-The findings presented here are preliminary and cursory, the test cases may not be completely reasonable. However, they can serve as a reference to a certain extent.
+Although the findings presented here are preliminary and cursory, the test cases may not be completely reasonable,they can still serve as a reference to a certain extent.
 
 ![Scores of Each Model](https://raw.githubusercontent.com/hongxiao95/3.5D-LLM-Research/master/ExpirementDocs/miniGPTvsGPT/scores_of_each_model.png "Scores of Each Model")
 Fig.1 Scores of Each Model
