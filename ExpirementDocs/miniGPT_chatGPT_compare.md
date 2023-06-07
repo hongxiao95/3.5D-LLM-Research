@@ -5,7 +5,7 @@ To test the ability of giving formatted output of mini-GPT4, chatGPT 3.5, chatGP
 # Method
 Design some prompts, and input to the 3 models above, observe the results.
 
-# Test cases
+# Test cases design
 The test cases are some prompts that ask the LLM to give formatted output.
 
 1. Robot Commands （DEMO）
@@ -169,7 +169,7 @@ The test cases are some prompts that ask the LLM to give formatted output.
     3. Tony has a box, in the box there is a pen, a can of cola, an envelope, inside the envelope there is a card-pocket, inside the card-pocket there is a bank card, a credit card, a passport. There is two photos sandwiched in the passport. Describe what Tony have and the containing relationship. 
 
 
-# Expreiment Env & Results
+# Expreiment Environment
 
 We use GPT3.5-turbo, GPT-4 and miniGPT-4 deploied by Xiaofan to run the test cases.
 
@@ -181,13 +181,30 @@ Since we need to use the "system" prompt to set the preset instruction, and the 
 And for the mini-GPT, there is no api, so we input the "system" prompt as a user prompt and add a sentence "After you read and understood the instructions, say "ok" to me." 
 Also, miniGPT4 requires a picture before start chatting, we used a blank 300*300 picture of pure white in order to minimium the influence from the picture. 
 
------
+# Results
+
+We set score rules for each question.
+
+|FULL Score 160 |Robot Q1   |Robot Q2   |Robot Q3   |Robot Q4   |Robot Q5   |Json Q1    |Json Q2    |Json Q3    |Total  |
+|----           |---------  |--------   |----       |----       |----       |----       |----       |----       |----   |
+|GPT-3.5-Turbo  |20         |20         |20         |17         |11         |18         |19         |18         |143    |
+|GPT-4          |20         |20         |20         |20         |18         |20         |20         |20         |158    |
+|miniGPT-4      | 20        |15         |2          |17         |10         |13         |9          |12         |98     |
 
 ## Robot Commands
+
+5 questions. Each question 20 points.
+For each question: 
+
+1. No syntax error: 5 points.
+2. Correct motion: 10 points.
+3. Good format and comment: 5 points.
 
 ### Q1: Go forward for 1 meter, go back for 2 meters.
 
 **GPT3.5-Turbo**
+
+5 + 10 + 5 = 20 p
 
 ```
 START::
@@ -198,6 +215,8 @@ GO::Back,2
 END::
 ```
 **GPT-4**
+
+5 + 10 + 5 = 20 p
 
 ```
 START::
@@ -211,6 +230,8 @@ END::
 
 **miniGPT-4**
 
+5 + 10 + 5 = 20
+
 ```
 START::
 GO::Forward,1
@@ -221,6 +242,8 @@ END::
 ### Q2: Go forward for 2 meters, turn left and go forward for 0.7 meters, and shift right for 2 meters.
 
 **GPT-3.5-Turbo**
+
+5 + 10 + 5 = 20
 
 ```
 START::
@@ -242,6 +265,8 @@ END::
 
 **GPT-4**
 
+5 + 10 + 5 = 20
+
 ```
 START::
 
@@ -257,6 +282,11 @@ END::
 ```
 
 **miniGPT-4**
+
+0 + 7 + 5 = 15
+
+Command "SHIFT" doesn't exitst.
+
 ```
 START:: 
 GO::Forward,2 
@@ -271,6 +301,9 @@ END::
 ### Q3: Walk a square with 3-meter side length.
 
 **GPT-3.5-Turbo**
+
+5 + 10 + 5 = 20
+
 ```
 // Start at the first corner of the square facing forward
 START::
@@ -293,6 +326,9 @@ END::
 ```
 
 **GPT-4**
+
+5 + 10 + 5 = 20
+
 ```
 START::
 
@@ -316,6 +352,10 @@ END::
 
 **miniGPT-4**
 
+0 + 2 + 0 = 2
+
+illegal comments, and wrong motions.
+
 ```
 To walk a square with a 3-meter side length, you can use the following commands:
 
@@ -336,6 +376,11 @@ END::
 ### Q4: Turn left and walk 5 meters, then turn back and walk 2 meters, and repeat for 3 times.
 
 **GPT-3.5-Turbo**
+
+5 + 8 + 5 = 17
+
+repeated 1 more time.
+
 ```
 START::
 
@@ -369,6 +414,9 @@ END::
 ```
 
 **GPT-4**
+
+5 + 10 + 5 = 20
+
 ```
 START::
 
@@ -395,6 +443,11 @@ END::
 ```
 
 **miniGPT-4**
+
+5 + 8 + 5 = 17
+
+missed one time repetition.
+
 ```
 START::
 TURN::Left
@@ -412,6 +465,11 @@ END::
 ### Q5: Try walk a circle-like path, with radius of 3 meters.
 
 **GPT-3.5-Turbo**
+
+5 + 1 + 5 = 11
+
+Not a cicle.
+
 ```
 START::
 
@@ -438,6 +496,11 @@ END::
 ```
 
 **GPT-4**
+
+5 + 8 + 5 = 18
+
+Actaually turn angle cannot be specificated, but the workflow is correct.
+
 ```
 // A circle-like path cannot be accurately represented with the available commands.
 // However, we can approximate it by moving in small increments and turning slightly.
@@ -509,6 +572,11 @@ END::
 ```
 
 **miniGPT-4**
+
+5 + 0 + 5 = 10
+
+Not a circle.
+
 ```
 START:: 
 GO::Forward,3 
@@ -529,9 +597,19 @@ END::
 
 ## JSON format
 
+3 questions. Each question 20 points.
+For each question: 
+
+1. No syntax error and well formated: 6 points.
+2. Correct information: 7 points.
+3. Structure is clear and easy to understand: 7 points.
+
 ### Q1: Tom is 18 years old, Shawn is 5 years older than Tom, Tim is 3 years younger than Shawn. How old is each person above?
 
 **GPT3.5-Turbo**
+
+6 + 7 + 5 = 18
+
 ```
 {
     "Answer": {
@@ -544,6 +622,9 @@ END::
 ```
 
 **GPT-4**
+
+6 + 7 + 7 = 20
+
 ```
 {
   "Answer": [
@@ -556,6 +637,11 @@ END::
 ```
 
 **miniGPT-4**
+
+4 + 4 + 5 = 13
+
+Not well formated, Tim's age is wrong.
+
 ```
 { “Answer”: { “Tom”:18, “Shawn”:23, “Tim”:15 }, “Explanation”:“Tom is 18 years old, Shawn is 5 years older than Tom, which is 23 years old, and Tim is 3 years younger than Shawn, which is 15 years old.” }
 ```
@@ -563,6 +649,11 @@ END::
 ### Q2: I have a Macbook pro, which values 3000 dollars. I use it for video editing and programming. I also have a iPad, I can do simple video editing work by iPad but cannot do programming work on it. What can I do with the two devices above?
 
 **GPT3.5-Turbo**
+
+6 + 6 + 7 = 19
+
+Value is not necessary.
+
 ```
 {
     "Answer": {
@@ -581,6 +672,9 @@ END::
 ```
 
 **GPT-4**
+
+6 + 7 + 7 = 20
+
 ```
 {
   "Answer": {
@@ -592,6 +686,11 @@ END::
 ```
 
 **miniGPT-4**
+
+4 + 2 + 3 = 9
+
+Wrong information.
+
 ```
 { “Answer”: { “Macbook Pro”:3000, “iPad”:1000 }, “Explanation”:“A Macbook Pro is worth 3000 dollars and can be used for video editing and programming. An iPad can be used for simple video editing, but it is not suitable for programming work.” }
 ```
@@ -599,6 +698,9 @@ END::
 ### Q3: Tony has a box, in the box there is a pen, a can of cola, an envelope, inside the envelope there is a card-pocket, inside the card-pocket there is a bank card, a credit card, a passport. There is two photos sandwiched in the passport. Describe what Tony have and the containing relationship.  
 
 **GPT3.5-Turbo**
+
+4 + 7 + 7 = 18
+
 ```
 {
 "Answer": {
@@ -629,6 +731,9 @@ END::
 ```
 
 **GPT-4**
+
+6 + 7 + 7 = 20
+
 ```
 {
   "Answer": {
@@ -651,6 +756,11 @@ END::
 ```
 
 **miniGPT-4**
+
+2 + 7 + 3 = 12
+
+Wrong brace, wired structure.  
+
 ```
 {
 “Tony”: {
@@ -673,6 +783,12 @@ END::
 }
 }
 ```
+
+# Conclusion
+
+Compared to the massive computational power required for the original versions of ChatGPT3.5 and GPT4, miniGPT4's ability to achieve a similar level of performance on a single machine with a single graphics card is quite superior. However, we must recognize that miniGPT exhibits a noticeable gap when handling logical problems and producing strongly formatted outputs compared to the original GPT models. This is not merely due to a lack of computational power. In fact, in order to accommodate the limited computational power and memory space of a single graphics card, the reduced parameter scale of miniGPT is likely the true reason for its inability to solve complex and formatting problems.
+
+If we think of the original GPT3.5 and GPT4's capabilities in executing logical and formatted tasks as the levels of undergraduate and graduate students, respectively, then miniGPT might be at the level of a middle school or high school student. Although this level of disparity is clear, it seems insignificant compared to the computational power gap. However, whether this gap is linear is something we believe requires further research. In other words, to bridge these seemingly small gaps, we may ultimately still need to upgrade the model to a larger one that can compete with GPT.
 
 
 
