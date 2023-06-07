@@ -173,7 +173,7 @@ The test cases are some prompts that ask the LLM to give formatted output.
     3. Tony has a box, in the box there is a pen, a can of cola, an envelope, inside the envelope there is a card-pocket, inside the card-pocket there is a bank card, a credit card, a passport. There is two photos sandwiched in the passport. Describe what Tony have and the containing relationship. 
 
 
-# Expreiment Environment
+# Experiment Environment
 
 We use GPT3.5-turbo, GPT-4 and miniGPT-4 deploied by Xiaofan to run the test cases.
 
@@ -185,9 +185,11 @@ Since we need to use the "system" prompt to set the preset instruction, and the 
 And for the mini-GPT, there is no api, so we input the "system" prompt as a user prompt and add a sentence "After you read and understood the instructions, say "ok" to me." 
 Also, miniGPT4 requires a picture before start chatting, we used a blank 300*300 picture of pure white in order to minimium the influence from the picture. 
 
+During the experiments, we found that the miniGPT is not as stable as we thought. Sometimes miniGPT stop responding and freeze up.
+
 # Results
 
-We set score rules for each question.
+We set scoring rules for each question.
 
 |FULL Score 160 |Robot Q1   |Robot Q2   |Robot Q3   |Robot Q4   |Robot Q5   |Json Q1    |Json Q2    |Json Q3    |Total  |
 |----           |---------  |--------   |----       |----       |----       |----       |----       |----       |----   |
