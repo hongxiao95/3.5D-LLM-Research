@@ -1,3 +1,6 @@
+# A Comparative Look at miniGPT and chatGPT: A Preliminary Investigation into Logical Problem Handling and Formatted Output Generation
+
+--------
 # 1 Abstract & Introduction
 Based on the previous research, one of the main problem with driving robots with GPT is that GPT-4 costs too much. Xiaofan deploied the miniGPT-4 in our own server so that we can reach a "small" LLM model with nearly 0 cost. But after all, the computational power and parameter scale that miniGPT uses are very limited. 
 To test the ability of processing logical problem and generating formatted output of miniGPT, we designed two experiments to compare miniGPT with GPT3.5-turbo and GPT-4. 
