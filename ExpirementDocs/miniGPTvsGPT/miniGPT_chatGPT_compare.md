@@ -1,4 +1,4 @@
-# Abstract & Introduction
+# 1 Abstract & Introduction
 Based on the previous research, one of the main problem with driving robots with GPT is that GPT-4 costs too much. Xiaofan deploied the miniGPT-4 in our own server so that we can reach a "small" LLM model with nearly 0 cost. But after all, the computational power and parameter scale that miniGPT uses are very limited. 
 To test the ability of processing logical problem and generating formatted output of miniGPT, we designed two experiments to compare miniGPT with GPT3.5-turbo and GPT-4. 
 Relative to its limited computational power and parameters, miniGPT performs very well in terms of cost-effectiveness, but in terms of absolute capability, it lags significantly behind GPT3.5 and GPT4. For specific tasks, it might be possible to enhance miniGPT's capabilities in certain areas through model fine-tuning. However, if a comprehensive enhancement of miniGPT's capabilities is desired, increasing computational power and parameter scale might still be necessary under current technological conditions. 
@@ -9,13 +9,13 @@ Fig.1 Scores of Each Model
 ![Scores of Each Question](https://raw.githubusercontent.com/hongxiao95/3.5D-LLM-Research/master/ExpirementDocs/miniGPTvsGPT/scores_of_each_question.png?token=GHSAT0AAAAAACCOLYK6U6FMMVJJQHT3XSVWZEAX4CQ "Scores of Each Question")
 Fig.2 Scores of Each Question
 
-# Method
+# 2 Method
 
 We designed two experiments: ask the LLM to be a Robot command interpreter, and ask the LLM to answer questions via JSON format.
 For each case, we set one system prompts to describe the requirements in detail, and set serval questions based on the requirements. Each question represents for 20 points. There are 8 questions in total.
 After LLMs provide the answers to questions, we score it based on the quality of the answer and the scoring rules.
 
-# Test cases design
+# 3 Test Cases Design
 The test cases are some prompts that ask the LLM to give formatted output.
 
 1. Robot Commands （DEMO）
@@ -179,7 +179,7 @@ The test cases are some prompts that ask the LLM to give formatted output.
     3. Tony has a box, in the box there is a pen, a can of cola, an envelope, inside the envelope there is a card-pocket, inside the card-pocket there is a bank card, a credit card, a passport. There is two photos sandwiched in the passport. Describe what Tony have and the containing relationship. 
 
 
-# Experiment Environment
+# 4 Experiment Environment
 
 We use GPT3.5-turbo, GPT-4 and miniGPT-4 deploied by Xiaofan to run the test cases.
 
@@ -193,7 +193,7 @@ Also, miniGPT4 requires a picture before start chatting, we used a blank 300*300
 
 During the experiments, we found that the miniGPT is not as stable as we thought. Sometimes miniGPT stop responding and freeze up.
 
-# Results
+# 5 Results
 
 We set scoring rules for each question.
 
@@ -796,7 +796,7 @@ Wrong brace, wired structure.
 }
 ```
 
-# Conclusion
+# 6 Conclusion
 
 Compared to the massive computational power required for the original versions of ChatGPT3.5 and GPT4, miniGPT4's ability to achieve a similar level of performance on a single machine with a single graphics card is quite superior. However, we must recognize that miniGPT exhibits a noticeable gap when handling logical problems and producing strongly formatted outputs compared to the original GPT models. This is not merely due to a lack of computational power. In fact, in order to accommodate the limited computational power and memory space of a single graphics card, the reduced parameter scale of miniGPT is likely the true reason for its inability to solve complex and formatting problems.
 
@@ -804,11 +804,16 @@ After all, these are just preliminary and rough conclusions, and the designed ex
 
 If we think of the original GPT3.5 and GPT4's capabilities in executing logical and formatted tasks as the levels of undergraduate and graduate students, respectively, then miniGPT might be at the level of a middle school or high school student. Although this level of disparity is clear, it seems insignificant compared to the computational power gap. However, whether this gap is linear is something we believe requires further research. In other words, to bridge these seemingly small gaps, we may ultimately still need to upgrade the model to a larger one that can compete with GPT.
 
-# Future Work
+# 7 Future Work
 
 Fine-tuning miniGPT for specific domains to enhance its capability in solving certain types of problems might be the most valuable approach. Although, this might make miniGPT a 'specialized' language model, rather than a general-purpose model.
 
-# Reference
+# 8 Acknowledgements
+
+I express sincere gratitude to Xiaofan for his diligent deployment and maintenance of miniGPT. Acknowledgement is also extended to Farid, Xiaofan, and Ieiri sensei for their highly insightful discussions that motivated the design and execution of this simple yet intriguing experiment.
+
+
+# 10 References
 
 1. OpenAI. API Reference. Accessed: 2023-06-07. 2023. URL: https://platform.openai.com/docs/api-reference 
 
