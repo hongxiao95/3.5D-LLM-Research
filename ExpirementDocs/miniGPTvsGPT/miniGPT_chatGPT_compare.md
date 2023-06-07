@@ -29,7 +29,7 @@ We designed two experiments: asking the LLM to be a Robot command interpreter, a
 
 For each scenario, we set one system prompts to describe the requirements in detail, and set serval questions based on the requirements. Each question carries a weight of 20 points, culminating in a total of eight questions.
 
-Upon receiving the responses from the LLMs, we assigned scores according to the quality of the answers, in alignment with our predetermined scoring rubric.
+Upon receiving the responses from the LLMs, we assigned scores according to the quality of the answers, in alignment with our predetermined scoring rules.
 
 # 3 Test Cases Design
 
