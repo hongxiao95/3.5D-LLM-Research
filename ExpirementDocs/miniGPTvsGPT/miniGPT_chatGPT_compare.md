@@ -3,6 +3,12 @@ Based on the previous research, one of the main problem with driving robots with
 To test the ability of processing logical problem and generating formatted output of miniGPT, we designed two experiments to compare miniGPT with GPT3.5-turbo and GPT-4. 
 Relative to its limited computational power and parameters, miniGPT performs very well in terms of cost-effectiveness, but in terms of absolute capability, it lags significantly behind GPT3.5 and GPT4. For specific tasks, it might be possible to enhance miniGPT's capabilities in certain areas through model fine-tuning. However, if a comprehensive enhancement of miniGPT's capabilities is desired, increasing computational power and parameter scale might still be necessary under current technological conditions. 
 
+![Scores of Each Model](https://raw.githubusercontent.com/hongxiao95/3.5D-LLM-Research/master/ExpirementDocs/miniGPTvsGPT/scores_of_each_model.png?token=GHSAT0AAAAAACCOLYK6LRDPMWHG7JYRDWQ2ZEAX5MA "Scores of Each Model")
+Fig.1 Scores of Each Model
+
+![Scores of Each Question](https://raw.githubusercontent.com/hongxiao95/3.5D-LLM-Research/master/ExpirementDocs/miniGPTvsGPT/scores_of_each_question.png?token=GHSAT0AAAAAACCOLYK6U6FMMVJJQHT3XSVWZEAX4CQ "Scores of Each Question")
+Fig.2 Scores of Each Question
+
 # Method
 
 We designed two experiments: ask the LLM to be a Robot command interpreter, and ask the LLM to answer questions via JSON format.
@@ -794,12 +800,21 @@ Wrong brace, wired structure.
 
 Compared to the massive computational power required for the original versions of ChatGPT3.5 and GPT4, miniGPT4's ability to achieve a similar level of performance on a single machine with a single graphics card is quite superior. However, we must recognize that miniGPT exhibits a noticeable gap when handling logical problems and producing strongly formatted outputs compared to the original GPT models. This is not merely due to a lack of computational power. In fact, in order to accommodate the limited computational power and memory space of a single graphics card, the reduced parameter scale of miniGPT is likely the true reason for its inability to solve complex and formatting problems.
 
+After all, these are just preliminary and rough conclusions, and the designed experiments and use cases may not necessarily be completely reasonable. However, they can serve as a reference to a certain extent.
+
 If we think of the original GPT3.5 and GPT4's capabilities in executing logical and formatted tasks as the levels of undergraduate and graduate students, respectively, then miniGPT might be at the level of a middle school or high school student. Although this level of disparity is clear, it seems insignificant compared to the computational power gap. However, whether this gap is linear is something we believe requires further research. In other words, to bridge these seemingly small gaps, we may ultimately still need to upgrade the model to a larger one that can compete with GPT.
 
 # Future Work
 
 Fine-tuning miniGPT for specific domains to enhance its capability in solving certain types of problems might be the most valuable approach. Although, this might make miniGPT a 'specialized' language model, rather than a general-purpose model.
 
+# Reference
+
+1. OpenAI. API Reference. Accessed: 2023-06-07. 2023. URL: https://platform.openai.com/docs/api-reference 
+
+2. Deeplearning. ChatGPT Prompt Engineering for Developers. Accessed: 2023-06-07. 2023. URL: https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/
+
+3. Microsoft. Azure OpenAI Service Documentation. Accessed: 2023-06-07. 2023. URL: https://learn.microsoft.com/en-us/azure/cognitive-services/openai/
 
 
 
