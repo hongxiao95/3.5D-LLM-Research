@@ -1,12 +1,21 @@
-# A Comparative Look at miniGPT and chatGPT: A Preliminary Investigation into Logical Problem Handling and Formatted Output Generation
+# **A Comparative Look at miniGPT and chatGPT: A Preliminary Investigation into Logical Problem Handling and Formatted Output Generation**
 
 
 **<center>Xiao Hong</center>**
 
 # 1 Abstract & Introduction
-Based on the previous research, one of the main problem with driving robots with GPT is that GPT-4 costs too much. Xiaofan deploied the miniGPT-4 in our own server so that we can reach a "small" LLM model with nearly 0 cost. But after all, the computational power and parameter scale that miniGPT uses are very limited. 
-To test the ability of processing logical problem and generating formatted output of miniGPT, we designed two experiments to compare miniGPT with GPT3.5-turbo and GPT-4. 
-Relative to its limited computational power and parameters, miniGPT performs very well in terms of cost-effectiveness, but in terms of absolute capability, it lags significantly behind GPT3.5 and GPT4. For specific tasks, it might be possible to enhance miniGPT's capabilities in certain areas through model fine-tuning. However, if a comprehensive enhancement of miniGPT's capabilities is desired, increasing computational power and parameter scale might still be necessary under current technological conditions. 
+
+Based on the previous research, a significant problem utilizing GPT for robot operation is the computational cost associated with GPT-4. Xiaofan deployed the miniGPT-4 in our own server, providing access to a "small" LLM model at virtually no cost. 
+
+However, it's important to remember that the computational power and parameter scale harnessed by miniGPT remain significantly limited.
+
+To evaluate miniGPT's capability in processing logical problems and generating formatted outputs, we designed two experiments for a comparative analysis with GPT3.5-turbo and GPT-4. 
+
+Relative to its limited computational power and parameters, miniGPT performs very well in terms of cost-effectiveness, but in terms of absolute capability, it lags significantly behind GPT3.5 and GPT4. For specific tasks, it might be possible to enhance miniGPT's capabilities in certain areas through model fine-tuning. 
+
+However, if a comprehensive enhancement of miniGPT's capabilities is desired, increasing computational power and parameter scale might still be necessary under current technological conditions. 
+
+The findings presented here are preliminary and cursory, the test cases may not be completely reasonable. However, they can serve as a reference to a certain extent.
 
 ![Scores of Each Model](https://raw.githubusercontent.com/hongxiao95/3.5D-LLM-Research/master/ExpirementDocs/miniGPTvsGPT/scores_of_each_model.png "Scores of Each Model")
 Fig.1 Scores of Each Model
@@ -16,11 +25,14 @@ Fig.2 Scores of Each Question
 
 # 2 Method
 
-We designed two experiments: ask the LLM to be a Robot command interpreter, and ask the LLM to answer questions via JSON format.
-For each case, we set one system prompts to describe the requirements in detail, and set serval questions based on the requirements. Each question represents for 20 points. There are 8 questions in total.
-After LLMs provide the answers to questions, we score it based on the quality of the answer and the scoring rules.
+We designed two experiments: asking the LLM to be a Robot command interpreter, and asking the LLM to answer questions via JSON format.
+
+For each scenario, we set one system prompts to describe the requirements in detail, and set serval questions based on the requirements. Each question carries a weight of 20 points, culminating in a total of eight questions.
+
+Upon receiving the responses from the LLMs, we assigned scores according to the quality of the answers, in alignment with our predetermined scoring rubric.
 
 # 3 Test Cases Design
+
 The test cases are some prompts that ask the LLM to give formatted output.
 
 1. Robot Commands （DEMO）
@@ -186,17 +198,18 @@ The test cases are some prompts that ask the LLM to give formatted output.
 
 # 4 Experiment Environment
 
-We use GPT3.5-turbo, GPT-4 and miniGPT-4 deploied by Xiaofan to run the test cases.
+We use GPT3.5-turbo, GPT-4 and miniGPT-4 deployed by Xiaofan to run the test cases.
 
-The Model Tempature is set to be 0.2 .
-For GPT3.5-turbo and GPT4, the top-p is 0.95 .
+The Model Tempature was set at 0.2 .
+For GPT3.5-turbo and GPT4, the top-p was set at 0.95 .
 For miniGPT, the top-p cannot be adjusted.
 
-Since we need to use the "system" prompt to set the preset instruction, and the chatGPT website version doesn't support inputing the "system" prompt. The results of GPT 3.5 and 4 are executed by API. 
-And for the mini-GPT, there is no api, so we input the "system" prompt as a user prompt and add a sentence "After you read and understood the instructions, say "ok" to me." 
-Also, miniGPT4 requires a picture before start chatting, we used a blank 300*300 picture of pure white in order to minimium the influence from the picture. 
+Given that we need to use the "system" prompt to set the preset instruction, and the chatGPT website version doesn't support the insertion the "system" prompt, the results of GPT 3.5 and 4 are executed by API. 
+As mini-GPT lacks an API, we input the "system" prompt as a user prompt and appended the phrase "After you read and understood the instructions, say 'ok' to me."
 
-During the experiments, we found that the miniGPT is not as stable as we thought. Sometimes miniGPT stop responding and freeze up.
+Furthermore, miniGPT4 requires a picture before starting a conversation, we uploaded a blank 300*300 picture of pure white in order to minimize the influence from the picture. 
+
+During the experiments, we found that the miniGPT is not as stable as we thought. Occasionally, miniGPT would stop responding and become unresponsive.
 
 # 5 Results
 
@@ -247,7 +260,7 @@ END::
 
 **miniGPT-4**
 
-5 + 10 + 5 = 20
+5 + 10 + 5 = 20 p
 
 ```
 START::
@@ -260,7 +273,7 @@ END::
 
 **GPT-3.5-Turbo**
 
-5 + 10 + 5 = 20
+5 + 10 + 5 = 20 p
 
 ```
 START::
@@ -282,7 +295,7 @@ END::
 
 **GPT-4**
 
-5 + 10 + 5 = 20
+5 + 10 + 5 = 20 p
 
 ```
 START::
@@ -300,7 +313,7 @@ END::
 
 **miniGPT-4**
 
-0 + 7 + 5 = 15
+0 + 7 + 5 = 15 p
 
 Command "SHIFT" doesn't exitst.
 
@@ -319,7 +332,7 @@ END::
 
 **GPT-3.5-Turbo**
 
-5 + 10 + 5 = 20
+5 + 10 + 5 = 20 p
 
 ```
 // Start at the first corner of the square facing forward
@@ -344,7 +357,7 @@ END::
 
 **GPT-4**
 
-5 + 10 + 5 = 20
+5 + 10 + 5 = 20 p
 
 ```
 START::
@@ -369,7 +382,7 @@ END::
 
 **miniGPT-4**
 
-0 + 2 + 0 = 2
+0 + 2 + 0 = 2 p
 
 illegal comments, and wrong motions.
 
@@ -394,7 +407,7 @@ END::
 
 **GPT-3.5-Turbo**
 
-5 + 8 + 5 = 17
+5 + 8 + 5 = 17 p
 
 repeated 1 more time.
 
@@ -432,7 +445,7 @@ END::
 
 **GPT-4**
 
-5 + 10 + 5 = 20
+5 + 10 + 5 = 20 p
 
 ```
 START::
@@ -461,7 +474,7 @@ END::
 
 **miniGPT-4**
 
-5 + 8 + 5 = 17
+5 + 8 + 5 = 17 p
 
 missed one time repetition.
 
@@ -483,7 +496,7 @@ END::
 
 **GPT-3.5-Turbo**
 
-5 + 1 + 5 = 11
+5 + 1 + 5 = 11 p
 
 Not a cicle.
 
@@ -514,7 +527,7 @@ END::
 
 **GPT-4**
 
-5 + 8 + 5 = 18
+5 + 8 + 5 = 18 p
 
 Actaually turn angle cannot be specificated, but the workflow is correct.
 
@@ -590,7 +603,7 @@ END::
 
 **miniGPT-4**
 
-5 + 0 + 5 = 10
+5 + 0 + 5 = 10 p
 
 Not a circle.
 
@@ -625,7 +638,7 @@ For each question:
 
 **GPT3.5-Turbo**
 
-6 + 7 + 5 = 18
+6 + 7 + 5 = 18 p
 
 ```
 {
@@ -640,7 +653,7 @@ For each question:
 
 **GPT-4**
 
-6 + 7 + 7 = 20
+6 + 7 + 7 = 20 p
 
 ```
 {
@@ -655,7 +668,7 @@ For each question:
 
 **miniGPT-4**
 
-4 + 4 + 5 = 13
+4 + 4 + 5 = 13 p
 
 Not well formated, Tim's age is wrong.
 
@@ -667,7 +680,7 @@ Not well formated, Tim's age is wrong.
 
 **GPT3.5-Turbo**
 
-6 + 6 + 7 = 19
+6 + 6 + 7 = 19 p
 
 Value is not necessary.
 
@@ -690,7 +703,7 @@ Value is not necessary.
 
 **GPT-4**
 
-6 + 7 + 7 = 20
+6 + 7 + 7 = 20 p
 
 ```
 {
@@ -704,7 +717,7 @@ Value is not necessary.
 
 **miniGPT-4**
 
-4 + 2 + 3 = 9
+4 + 2 + 3 = 9 p
 
 Wrong information.
 
@@ -716,7 +729,7 @@ Wrong information.
 
 **GPT3.5-Turbo**
 
-4 + 7 + 7 = 18
+4 + 7 + 7 = 18 p
 
 ```
 {
@@ -749,7 +762,7 @@ Wrong information.
 
 **GPT-4**
 
-6 + 7 + 7 = 20
+6 + 7 + 7 = 20 p
 
 ```
 {
@@ -774,7 +787,7 @@ Wrong information.
 
 **miniGPT-4**
 
-2 + 7 + 3 = 12
+2 + 7 + 3 = 12 p
 
 Wrong brace, wired structure.  
 
@@ -803,9 +816,9 @@ Wrong brace, wired structure.
 
 # 6 Conclusion
 
-Compared to the massive computational power required for the original versions of ChatGPT3.5 and GPT4, miniGPT4's ability to achieve a similar level of performance on a single machine with a single graphics card is quite superior. However, we must recognize that miniGPT exhibits a noticeable gap when handling logical problems and producing strongly formatted outputs compared to the original GPT models. This is not merely due to a lack of computational power. In fact, in order to accommodate the limited computational power and memory space of a single graphics card, the reduced parameter scale of miniGPT is likely the true reason for its inability to solve complex and formatting problems.
+Compared to the massive computational power required for the original versions of ChatGPT3.5 and GPT4, miniGPT4's ability to achieve a similar level of performance on a single machine with a single graphics card is quite remarkable. However, we must recognize that miniGPT exhibits a noticeable gap when handling logical problems and producing strongly formatted outputs compared to the original GPT models. This is not merely due to a lack of computational power. In fact, to suit the limited computational power and memory space of a single graphics card, the reduced parameter scale of miniGPT is likely the true reason for its inability to solve complex and formatting problems.
 
-After all, these are just preliminary and rough conclusions, and the designed experiments and use cases may not necessarily be completely reasonable. However, they can serve as a reference to a certain extent.
+These findings should be seen as preliminary and rough; the experiments and use cases we designed may not entirely be accurate. However, they can serve as a useful point of reference.
 
 If we think of the original GPT3.5 and GPT4's capabilities in executing logical and formatted tasks as the levels of undergraduate and graduate students, respectively, then miniGPT might be at the level of a middle school or high school student. Although this level of disparity is clear, it seems insignificant compared to the computational power gap. However, whether this gap is linear is something we believe requires further research. In other words, to bridge these seemingly small gaps, we may ultimately still need to upgrade the model to a larger one that can compete with GPT.
 
