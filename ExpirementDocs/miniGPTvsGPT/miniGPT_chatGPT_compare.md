@@ -3,10 +3,10 @@ Based on the previous research, one of the main problem with driving robots with
 To test the ability of processing logical problem and generating formatted output of miniGPT, we designed two experiments to compare miniGPT with GPT3.5-turbo and GPT-4. 
 Relative to its limited computational power and parameters, miniGPT performs very well in terms of cost-effectiveness, but in terms of absolute capability, it lags significantly behind GPT3.5 and GPT4. For specific tasks, it might be possible to enhance miniGPT's capabilities in certain areas through model fine-tuning. However, if a comprehensive enhancement of miniGPT's capabilities is desired, increasing computational power and parameter scale might still be necessary under current technological conditions. 
 
-![Scores of Each Model](https://raw.githubusercontent.com/hongxiao95/3.5D-LLM-Research/master/ExpirementDocs/miniGPTvsGPT/scores_of_each_model.png?token=GHSAT0AAAAAACCOLYK6LRDPMWHG7JYRDWQ2ZEAX5MA "Scores of Each Model")
+![Scores of Each Model](https://raw.githubusercontent.com/hongxiao95/3.5D-LLM-Research/master/ExpirementDocs/miniGPTvsGPT/scores_of_each_model.png "Scores of Each Model")
 Fig.1 Scores of Each Model
 
-![Scores of Each Question](https://raw.githubusercontent.com/hongxiao95/3.5D-LLM-Research/master/ExpirementDocs/miniGPTvsGPT/scores_of_each_question.png?token=GHSAT0AAAAAACCOLYK6U6FMMVJJQHT3XSVWZEAX4CQ "Scores of Each Question")
+![Scores of Each Question](https://raw.githubusercontent.com/hongxiao95/3.5D-LLM-Research/master/ExpirementDocs/miniGPTvsGPT/scores_of_each_question.png "Scores of Each Question")
 Fig.2 Scores of Each Question
 
 # 2 Method
