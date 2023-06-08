@@ -632,7 +632,7 @@ For each question:
 
 1. No syntax error and well formated: 6 points.
 2. Correct information: 7 points.
-3. Structure is clear and easy to understand: 7 points.
+3. Clear structure and easy to understand: 7 points.
 
 ### Q1: Tom is 18 years old, Shawn is 5 years older than Tom, Tim is 3 years younger than Shawn. How old is each person above?
 
