@@ -795,7 +795,7 @@ Wrong information.
 
 2 + 7 + 3 = 12 p
 
-Wrong brace, wired structure.  
+Wrong brace, strange structure.  
 
 ```
 {
