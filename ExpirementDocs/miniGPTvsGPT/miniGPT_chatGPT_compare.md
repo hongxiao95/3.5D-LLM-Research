@@ -17,11 +17,17 @@ But if a comprehensive enhancement of miniGPT's capabilities is desired, increas
 
 Although the findings presented here are preliminary and cursory, the test cases may not be completely reasonable,they can still serve as a reference to a certain extent.
 
-![Scores of Each Model](https://raw.githubusercontent.com/hongxiao95/3.5D-LLM-Research/master/ExpirementDocs/miniGPTvsGPT/scores_of_each_model.png "Scores of Each Model")
+![Scores of Each Model](./scores_of_each_model.png "Scores of Each Model")
 Fig.1 Scores of Each Model
 
-![Scores of Each Question](https://raw.githubusercontent.com/hongxiao95/3.5D-LLM-Research/master/ExpirementDocs/miniGPTvsGPT/scores_of_each_question.png "Scores of Each Question")
+![Scores of Each Question](./scores_of_each_question.png "Scores of Each Question")
 Fig.2 Scores of Each Question
+
+![Scores of Question 1 (Logical Problem)](./Q1_Score.png "Scores of Question 1 (Logical Problem)")
+Fig.3 Scores of Question 1 (Logical Problem)
+
+![Scores of Question 2 (Formatted Output - JSON)](./Q2_Score.png "Scores of Question 2 (Formatted Output - JSON)")
+Fig.4 Scores of Question 2 (Formatted Output - JSON)
 
 # 2 Method
 
