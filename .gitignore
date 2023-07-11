@@ -162,3 +162,5 @@ cython_debug/
 *.apikey
 
 UnitreeSDK
+
+.DS_Store
