@@ -4,5 +4,64 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"latex-workshop.latex.autoBuild.run": "onSave",
+		"latex-workshop.showContextMenu": true,
+		"latex-workshopL.intellisense.package.enabled": true,
+		"latex-workshop.message.error.show": false,
+		"latex-workshop.message.warning.show": false,
+		"latex-workshop.latex.tools": [
+			{
+				"name": "latexmk",
+				"command": "latexmk",
+				"args": [
+					"-synctex=1",
+					"-interaction=nonstopmode",
+					"-file-line-error",
+					"-pdf",
+					"-outdir=%OUTDIR%",
+					"%DOCFILE%"
+				]
+			},
+		],
+		"latex-workshop.latex.recipes": [
+			{
+				"name": "LaTeXmk",
+				"tools": [
+					"latexmk"
+				]
+			},
+		],
+		"latex-workshop.latex.clean.fileTypes": [
+			"*.aux",
+			"*.bbl",
+			"*.blg",
+			"*.idx",
+			"*.ind",
+			"*.lof",
+			"*.lot",
+			"*.out",
+			"*.toc",
+			"*.acn",
+			"*.acr",
+			"*.alg",
+			"*.glg",
+			"*.glo",
+			"*.gls",
+			"*.ist",
+			"*.fls",
+			"*.log",
+			"*.fdb_latexmk"
+		],
+		"latex-workshop.latex.autoClean.run": "onFailed",
+		"latex-workshop.latex.recipe.default": "lastUsed",
+		"latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+		"latex-workshop.linting.chktex.exec.args": [
+			"-wall",
+			"-n22",
+			"-n30",
+			"-e16",
+			"-q",
+		],
+	}
 }
